@@ -9,7 +9,7 @@ const employeeSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        uniquw: true,
+        unique: true,
     },
 
     password: {

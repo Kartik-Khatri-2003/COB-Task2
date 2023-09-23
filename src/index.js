@@ -62,7 +62,7 @@ app.post("/login", async (req, res) => {
         
         
     catch (error) {
-        res.status(400).send("invalid");
+        res.status(400).send(error);
     }
 });
 
