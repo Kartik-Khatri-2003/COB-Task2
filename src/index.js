@@ -4,8 +4,8 @@ const app = express();
 const hbs = require("hbs");
 const port = process.env.PORT || 3000;
 
-/* require("./db/connect"); */
-const connectDB = async () => {
+require("./db/connect");
+/* const connectDB = async () => {
     try {
       const conn = await mongoose.connect(process.env.MONGO_URI);
       console.log(`MongoDB Connected: ${conn.connection.host}`);
@@ -13,7 +13,7 @@ const connectDB = async () => {
       console.log(error);
       process.exit(1);
     }
-  }
+  } */
 const Sign = require("./models/registers");
 const { log } = require("console");
 const { register } = require("module");
