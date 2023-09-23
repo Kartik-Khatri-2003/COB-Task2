@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign page</title>
+    <style>
+        .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.box{
+    width: 400px;
+    height: 350px;
+    background-color: aqua;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+}
+
+.text-field{
+    border: none;
+    outline: none;
+    width: 80%;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 5px;
+}
+.checkbox {
+    position: relative;
+    left: 32px;
+    /* left: 60px; */
+    
+}
+
+.me{
+    position: relative;
+    left:25px;
+    /* left: 80px; */
+}
+
+.forgot{
+    position: relative;
+    left: 115px;
+    /* left: 275px;  */
+}
+
+.pass{
+    /* position: relative; */
+    
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 10px;
+    height: 20px;
+    max-width: 80%;
+    padding-bottom: 20px;
+}
+
+
+
+.forgot, .sign-up{
+    text-decoration: none;
+    color: green;
+}
+
+button{
+    /* background-color: white; */
+    border: none;
+    outline: none;
+    width: 80%;
+    height: 30px;
+    /* margin-bottom: 20px; */
+    border-radius: 20px;
+    padding: 5px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/register" method="post">
+        <div class="box">
+            <h1>sign up</h1>
+            <input class="text-field" placeholder="user_name" name="user_name">
+            <input class="text-field" placeholder="email" name="email">
+            <input class="text-field" placeholder="password" name="password">
+            <div class="pass">
+                <input class="checkbox" type="checkbox">
+                <p class="me">Remember me</p>
+                <!-- <a class="forgot" href="">forgot password ?</a> -->
+            </div>
+            {{!-- <a href="home"> --}}<button class="btn">sign up</button>{{!-- </a> --}}
+            <p>already have an account? <a class="sign-up" href="login"> log in!</a></p>
+        </div>
+        </form>
+    </div>
+
+    <!-- <script>
+        let btn = document.querySelector("button");
+        let inp1 = document.querySelector(".username ");
+        let inp2 = document.querySelector(".password");
+
+        btn.addEventListener("click", function(){
+            inp1.value = "";
+            inp2.value = "";
+
+        })
+    </script> -->
+</body>
+</html>

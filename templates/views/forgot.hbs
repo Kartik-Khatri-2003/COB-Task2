@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forgot</title>
+    
+    
+    <style>
+    body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    width: 400px;
+    height: auto;
+    background-color: aqua;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+
+.text_field{
+    border: none;
+    outline: none;
+    width: 80%;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+button{
+    /* background-color: white; */
+    border: none;
+    outline: none;
+    width: 80%;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.container h4{
+    
+    margin-left: 30px;
+    margin-right: 30px;
+}
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>forgot password</h1>
+        <p>enter your email and we'll send you a link to reset your password.</p>
+        <input class="text_field" type="text">
+        <h4></h4>
+        <button>submit</button>
+        <p><a href="login">back to login</a></p>
+    </div>
+
+    <script>
+        let btn = document.querySelector("button");
+        let inp = document.querySelector("input");
+        let message = document.querySelector("h4");
+
+        btn.addEventListener("click", function(){
+
+            message.classList.add("message");
+            
+            if(inp.value == ""){
+                message.innerHTML="Please fill in your email";
+            }
+            else{
+                inp.value = "";
+                message.innerHTML="a link has been sent to your email to reset your password";
+            }
+
+            
+                   
+        })
+    </script>
+</body>
+</html>
+
