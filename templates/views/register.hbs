@@ -15,7 +15,7 @@
 
 .box{
     width: 400px;
-    height: 350px;
+    height: auto;
     background-color: aqua;
     text-align: center;
     padding-top: 10px;
@@ -70,7 +70,7 @@
     color: green;
 }
 
-button{
+.btn{
     /* background-color: white; */
     border: none;
     outline: none;
@@ -87,30 +87,34 @@ button{
         <form action="/register" method="post">
         <div class="box">
             <h1>sign up</h1>
-            <input class="text-field" placeholder="user_name" name="user_name">
-            <input class="text-field" placeholder="email" name="email">
-            <input class="text-field" placeholder="password" name="password">
+            <input class="text-field" autocomplete="off" placeholder="user_name" name="user_name">
+            <p class="error_user" id="email-error">{{error_user}}</p>
+            <input class="text-field"  autocomplete="off" placeholder="email" name="email">
+            <p class="error_email" id="email-error">{{error_email}}</p>
+            <input type="password" class="text-field" placeholder="password" name="password">
+            <p class="error-message">{{errorMessage}}</p>
             <div class="pass">
                 <input class="checkbox" type="checkbox">
                 <p class="me">Remember me</p>
-                <!-- <a class="forgot" href="">forgot password ?</a> -->
             </div>
-            {{!-- <a href="home"> --}}<button class="btn">sign up</button>{{!-- </a> --}}
+            
+            <input type="submit" class="btn" value="Sign Up">
             <p>already have an account? <a class="sign-up" href="login"> log in!</a></p>
         </div>
         </form>
     </div>
 
-    <!-- <script>
-        let btn = document.querySelector("button");
-        let inp1 = document.querySelector(".username ");
-        let inp2 = document.querySelector(".password");
-
-        btn.addEventListener("click", function(){
-            inp1.value = "";
-            inp2.value = "";
-
-        })
-    </script> -->
+    <script>
+        // Check if the page was reloaded (not the first visit)
+    if (performance.navigation.type === 1) {
+        // The page was reloaded, hide the error message
+        const errorMessage = document.querySelector(".error-message");
+        const error_email = document.querySelector(".error_email");
+        const error_user = document.querySelector(".error_user");
+        errorMessage.style.display = "none";
+        error_email.style.display = "none";
+        error_user.style.display = "none";
+    }
+    </script>
 </body>
 </html>
