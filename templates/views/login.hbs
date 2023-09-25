@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login page</title>
     <style>
-        .container{
+
+.container{
+    
+    {{!-- background-color: black; --}}
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 
+}
+
+body {
+    background-image: url("/mern-backend/eage.jpg");
+    background-size: cover; /* Adjust the size to cover the entire body */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-position: center center; /* Center the image horizontally and vertically */
 }
 
 .box{
@@ -115,10 +125,6 @@
         errorMessage.style.display = "none";
         error_email.style.display = "none";
     }
-
-    
-
-    
     </script>
 </body>
 </html>
