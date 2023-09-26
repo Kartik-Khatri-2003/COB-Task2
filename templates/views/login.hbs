@@ -8,7 +8,7 @@
 
 .container{
     
-    {{!-- background-color: black; --}}
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,12 +16,7 @@
 
 }
 
-body {
-    background-image: url("/mern-backend/eage.jpg");
-    background-size: cover; /* Adjust the size to cover the entire body */
-    background-repeat: no-repeat; /* Prevent image from repeating */
-    background-position: center center; /* Center the image horizontally and vertically */
-}
+
 
 .box{
     width: 400px;
@@ -86,13 +81,18 @@ body {
     outline: none;
     width: 80%;
     height: 30px;
-    {{!-- margin-bottom: 20px; --}}
+    /* margin-bottom: 20px; */
     border-radius: 20px;
     padding: 5px;
 }
 
 .error_email{
     float: left;
+}
+
+img{
+    width: 100px;
+    height: 100px;
 }
     </style>
 </head>
@@ -109,7 +109,6 @@ body {
                 <input class="checkbox" type="checkbox">
                 <p class="me">Remember me</p>
                 <a class="forgot" href="forgot">forgot password ?</a>
-                
             </div>
             <input type="submit" class="btn" value="Log In">
             <p>not a member? <a class="sign-up" href="register"> sign up!</a></p>
