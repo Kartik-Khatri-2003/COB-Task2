@@ -3,118 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign page</title>
+    <title>Sign Up Page</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <style>
-        .container{
+/* Importing Google Fonts for the page */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+/* Styling for the entire body */
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-
+    background: linear-gradient(120deg, blue, pink);
+    overflow: hidden;
+    font-family: 'Roboto Slab', serif;
 }
 
-.box{
-    width: 400px;
+/* Styling for the main container box */
+.box {
+    color: white;
+    width: 350px;
     height: auto;
-    background-color: aqua;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 40px;
-    border-radius: 20px;
+    padding: 30px 35px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
 }
 
-.text-field{
-    border: none;
-    outline: none;
-    width: 80%;
-    height: 30px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    padding: 5px;
+/* Styling for the heading */
+h1 {
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
+
+/* Styling for the user circle icon */
+.user-circle {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    font-size: 100px;
+}
+
+/* Styling for text input fields */
+.text-field {
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+/* Styling for text input fields */
+.text-field input {
+    background: transparent;
+    font-size: 15px;
+    border: 1px solid white;
+    outline: none;
+    width: calc(100% - 65px);
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 50px;
+    padding: 5px 45px 5px 20px;
+    transition: .5s;
+    color: white;
+}
+
+/* Styling for icons inside text input fields */
+.text-field i {
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+/* Styling for the checkbox and "Remember Me" text */
 .checkbox {
     position: relative;
-    left: 32px;
-    /* left: 60px; */
-    
+    left: 0px;
 }
 
-.me{
+.me {
     position: relative;
-    left:25px;
-    /* left: 80px; */
+    left: -5px;
 }
 
-.forgot{
+/* Styling for the "Forgot Password" link */
+.forgot {
     position: relative;
-    left: 115px;
-    /* left: 275px;  */
+    left: 75px;
 }
 
-.pass{
-    /* position: relative; */
-    
+/* Styling for the password visibility toggle */
+.pass {
+    margin-top: 0px;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     gap: 10px;
     height: 20px;
     max-width: 80%;
     padding-bottom: 20px;
+    font-size: 15px;
 }
 
-
-
-.forgot, .sign-up{
+/* Styling for links */
+.log-in {
     text-decoration: none;
-    color: green;
+    color: white;
+    transition: all 0.3s;
+    transform-origin: center;
 }
 
-.btn{
-    /* background-color: white; */
-    border: none;
-    outline: none;
-    width: 80%;
-    height: 30px;
-    /* margin-bottom: 20px; */
-    border-radius: 20px;
-    padding: 5px;
+/* Styling for hover effect on links */
+.log-in:hover {
+    font-size: large;
+    color: rgb(44, 22, 46);
 }
+
+/* Styling for the "Already have an account?" text */
+.member {
+    margin: 0px;
+}
+
+/* Styling for label text in input fields */
+.email-label, .password-label, .user-label {
+    position: absolute;
+    color: white;
+    top: 35px;
+    left: 20px;
+    pointer-events: none;
+    transition: .4s;
+}
+
+/* Styling for label text when input is focused or has valid data */
+input:focus ~ label, input:valid ~ label {
+    top: -10px;
+}
+
+/* Styling for input fields when focused or with valid data */
+input:focus, input:valid {
+    background-color: #9ca8fb;
+}
+
+/* Styling for buttons */
+.btn {
+    color: white;
+    text-align: center;
+    border: 1px solid white;
+    outline: none;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    font-size: large;
+    background: transparent;
+    transition: all 0.3s;
+}
+
+/* Styling for hover effect on buttons */
+.btn:hover {
+    font-size: larger;
+    color: #1D1B38;
+    background-color: #9ca8fb;
+    border: none;
+}
+
     </style>
 </head>
 <body>
+    <!-- Main container for the Sign Up page -->
     <div class="container">
         <form action="/register" method="post">
-        <div class="box">
-            <h1>sign up</h1>
-            <input class="text-field" autocomplete="off" placeholder="user_name" name="user_name">
-            <p class="error_user" id="email-error">{{error_user}}</p>
-            <input class="text-field"  autocomplete="off" placeholder="email" name="email">
-            <p class="error_email" id="email-error">{{error_email}}</p>
-            <input type="password" class="text-field" placeholder="password" name="password">
-            <p class="error-message">{{errorMessage}}</p>
-            <div class="pass">
-                <input class="checkbox" type="checkbox">
-                <p class="me">Remember me</p>
+            <!-- Sign Up box -->
+            <div class="box">
+                <!-- Sign Up heading -->
+                <h1>Sign Up</h1>
+                <!-- User icon -->
+                <i class='bx bx-ghost user-circle'></i>
+
+                <!-- Username input field -->
+                <div class="text-field">
+                    <input class="user-field" autocomplete="off" name="user_name" required>
+                    <label class="user-label">Username</label>
+                    <i class='bx bx-user'></i>
+                    <p class="error_user" id="email-error">{{error_user}}</p>
+                </div>
+
+                <!-- Email input field -->
+                <div class="text-field">
+                    <input class="email-field" autocomplete="off" name="email" required>
+                    <label class="email-label">Email</label>
+                    <i class='bx bx-envelope'></i>
+                    <p class="error_email" id="email-error">{{error_email}}</p>
+                </div>
+
+                <!-- Password input field -->
+                <div class="text-field">
+                    <input type="password" class="password-field" name="password" required>
+                    <label class="password-label">Password</label>
+                    <!-- Show/Hide password toggle icon -->
+                    <i class='bx bx-show' id="font" onclick="togglepw()" aria-hidden="true"></i>
+                    <!-- Error message for password -->
+                    <p class="error-message">{{errorMessage}}</p>
+                </div>
+
+                <!-- Remember Me checkbox -->
+                <div class="pass">
+                    <input class="checkbox" type="checkbox">
+                    <p class="me">Remember me</p>
+                </div>
+
+                <!-- Sign Up button -->
+                <button class="btn">Sign Up</button>
+
+                <!-- Link for users who already have an account -->
+                <p>Already have an account? <a class="log-in" href="login"> Log in!!</a></p>
             </div>
-            
-            <input type="submit" class="btn" value="Sign Up">
-            <p>already have an account? <a class="sign-up" href="login"> log in!</a></p>
-        </div>
         </form>
     </div>
 
+    <!-- JavaScript code for functionality -->
     <script>
         // Check if the page was reloaded (not the first visit)
-    if (performance.navigation.type === 1) {
-        // The page was reloaded, hide the error message
-        const errorMessage = document.querySelector(".error-message");
-        const error_email = document.querySelector(".error_email");
-        const error_user = document.querySelector(".error_user");
-        errorMessage.style.display = "none";
-        error_email.style.display = "none";
-        error_user.style.display = "none";
-    }
+        if (performance.navigation.type === 1) {
+            // The page was reloaded, hide the error message
+            const errorMessage = document.querySelector(".error-message");
+            const error_email = document.querySelector(".error_email");
+            const error_user = document.querySelector(".error_user");
+            errorMessage.style.display = "none";
+            error_email.style.display = "none";
+            error_user.style.display = "none";
+        }
+
+        // Event listener to hide error messages when clicking anywhere on the page
+        document.addEventListener("click", function () {
+            const errorMessage = document.querySelector(".error-message");
+            const error_email = document.querySelector(".error_email");
+            const error_user = document.querySelector(".error_user")
+            errorMessage.style.display = "none";
+            error_email.style.display = "none";
+            error_user.style.display = "none";
+        })
+
+        // Function to toggle password visibility
+        let passwordVisible = false;
+        const passwordField = document.querySelector(".password-field");
+        const fontIcon = document.getElementById("font");
+
+        function togglepw() {
+            passwordVisible = !passwordVisible;
+            passwordField.type = passwordVisible ? "text" : "password";
+            fontIcon.classList.toggle("bx-hide", passwordVisible);
+            fontIcon.classList.toggle("bx-show", !passwordVisible);
+        }
     </script>
 </body>
 </html>

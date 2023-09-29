@@ -3,11 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home page</title>
+    <title>Home Page</title>
+
+    
+    <style>
+        /*Importing the Google Fonts for Roboto Slab*/
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+        /* Styles for the body element */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(120deg, blue, pink);
+            overflow: hidden;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        /* Styles for the main container */
+        .box {
+            color: aliceblue;
+            width: auto;
+            height: auto;
+            text-align: center;
+            padding: 30px 35px;
+            border-radius: 10px;
+            background: transparent;
+            border: 1px solid white;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(30px);
+        }
+    </style>
 </head>
 <body>
-    <form action="/home" method="post">
-    <h1>welcome <span class="name">{{name}}</span> </h1>
-    </form>
+    <!-- Main container with a form element -->
+    <div class="box">
+        <!-- Opening a form that may submit data to "/home" -->
+        <form action="/home" method="post">
+            <!-- Displaying a welcome message with a dynamic name -->
+            <h1>WELCOME, <span class="name">{{name}}</span></h1>
+        </form> 
+    </div>
 </body>
 </html>

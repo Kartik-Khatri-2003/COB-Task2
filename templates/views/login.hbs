@@ -3,127 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login page</title>
+    <title>Login Page</title>
+    <!-- Importing Google Fonts for Roboto Slab -->
+    <link href='https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap' rel='stylesheet'>
+
     <style>
+        /* Importing Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
-.container{
-    
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+        /* Styles for the body element */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(220deg, #E4F9F5, #30E3CA);
+            overflow: hidden;
+            font-family: 'Roboto Slab', serif;
+        }
 
-}
+        /* Styles for the main container */
+        .box {
+            color: white;
+            width: 350px;
+            height: auto;
+            text-align: center;
+            padding: 30px 35px;
+            border-radius: 10px;
+            background-color: #11999E;
+            border: 1px solid white;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(30px);
+        }
 
+        /* Styles for the heading */
+        h1 {
+            margin-top: 0px;
+            margin-bottom: 10px;
+            /* color: aliceblue; Commented out */
+        }
 
+        /* Styles for the user circle icon */
+        .user-circle {
+            margin-top: 0px;
+            margin-bottom: 30px;
+            font-size: 100px;
+        }
 
-.box{
-    width: 400px;
-    height: auto;
-    background-color: aqua;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 40px;
-    border-radius: 20px;
-}
+        /* Styles for text fields */
+        .text-field {
+            width: 100%;
+            position: relative;
+            margin-bottom: 25px;
+            /* min-height: 80px; Commented out */
+        }
 
-.text-field{
-    border: none;
-    outline: none;
-    width: 80%;
-    height: 30px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    padding: 5px;
-}
-.checkbox {
-    position: relative;
-    left: 32px;
-    /* left: 60px; */
-    
-}
+        /* Styles for input fields */
+        .text-field input {
+            background: transparent;
+            font-size: 15px;
+            border: 1px solid white;
+            outline: none;
+            width: calc(100% - 65px);
+            height: 40px;
+            margin-top: 20px;
+            border-radius: 50px;
+            padding: 5px 45px 5px 20px;
+            transition: .5s;
+            color: white; /* Added white text color */
+        }
 
-.me{
-    position: relative;
-    left:25px;
-    /* left: 80px; */
-}
+        /* Styles for icons within text fields */
+        .text-field i {
+            position: absolute;
+            top: 35px;
+            right: 20px;
+            font-size: 20px;
+            color: white;
+        }
 
-.forgot{
-    position: relative;
-    left: 115px;
-    /* left: 275px;  */
-}
+        /* Styles for the checkbox and "Remember Me" text */
+        .checkbox {
+            position: relative;
+            left: 0px;
+        }
 
-.pass{
-    /* position: relative; */
-    
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    gap: 10px;
-    height: 20px;
-    max-width: 80%;
-    padding-bottom: 20px;
-}
+        .me {
+            position: relative;
+            left: -5px;
+        }
 
+        /* Styles for the "Forgot Password?" and "Sign Up!" links */
+        .forgot, .sign-up {
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+            transform-origin: center;
+        }
 
+        .forgot:hover {
+            color: aquamarine;
+        }
 
-.forgot, .sign-up{
-    text-decoration: none;
-    color: green;
-}
+        .sign-up:hover {
+            font-size: large;
+            color: aquamarine;
+        }
 
-.btn{
-    background-color: white;
-    border: none;
-    outline: none;
-    width: 80%;
-    height: 30px;
-    /* margin-bottom: 20px; */
-    border-radius: 20px;
-    padding: 5px;
-}
+        /* Styles for the membership message */
+        .member {
+            margin: 0px;
+        }
 
-.error_email{
-    float: left;
-}
+        /* Styles for email and password labels */
+        .email-label, .password-label {
+            position: absolute;
+            color: white;
+            top: 35px;
+            left: 20px;
+            pointer-events: none;
+            transition: .4s;
+        }
 
-img{
-    width: 100px;
-    height: 100px;
-}
+        /* Styles for input fields when focused or valid */
+        input:focus ~ label, input:valid ~ label {
+            top: -10px;
+            color: white;
+        }
+
+        input:focus, input:valid {
+            background-color: rgb(33, 51, 70);
+        }
+
+        /* Styles for the login button */
+        .btn {
+            color: white;
+            text-align: center;
+            border: 1px solid white;
+            outline: none;
+            width: 100%;
+            height: 50px;
+            margin-bottom: 20px;
+            border-radius: 50px;
+            font-size: large;
+            background: transparent;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            font-size: larger;
+            color: black;
+            background-color: aquamarine;
+        }
+
+        /* Styles for error messages */
+        .error-message {
+            margin-bottom: 0px;
+        }
+
+        /* Styles for aquamarine-colored icons */
+        .aquamarine-icon {
+            color: black;
+        }
     </style>
 </head>
 <body>
+    <!-- Main container for the login page -->
     <div class="container">
         <form action="/login" method="post">
-        <div class="box">
-            <h1>LOGIN</h1>
-            <input class="text-field" id="email-input" autocomplete="off" placeholder="email" name="email">
-            <p class="error_email" >{{error_email}}</p>
-            <input type="password" class="text-field" placeholder="password" name="password">
-            <p class="error-message">{{errorMessage}}</p>  
-            <div class="pass">
-                <input class="checkbox" type="checkbox">
-                <p class="me">Remember me</p>
-                <a class="forgot" href="forgot">forgot password ?</a>
+            <!-- Login box -->
+            <div class="box">
+                <!-- Login heading -->
+                <h1>LOGIN</h1>
+                <!-- User icon -->
+                <i class='bx bx-cool user-circle'></i>
+
+                <!-- Email input field -->
+                <div class="text-field">
+                    <input class="email-field" autocomplete="off" name="email" required>
+                    <label class="email-label">Email</label>
+                    <i class='bx bx-envelope aquamrine-icon'></i> <!-- Typo fixed: aquamrine-icon to aquamarine-icon -->
+                    <p class="error_email error-message">{{error_email}}</p>
+                </div>
+
+                <!-- Password input field -->
+                <div class="text-field">
+                    <input type="password" class="password-field" name="password" required>
+                    <label class="password-label">Password</label>
+                    <!-- Show/Hide password toggle icon -->
+                    <i class='bx bx-show' id="font" onclick="togglepw()" aria-hidden="true"></i>
+                    <!-- Error message for password -->
+                    <p class="error_password error-message">{{errorMessage}}</p>
+                </div>
+
+                <!-- Remember Me checkbox and link to Forgot Password -->
+                <div class="pass">
+                    <input class="checkbox" type="checkbox">
+                    <p class="me">Remember Me</p>
+                    <a class="forgot" href="forgot">Forgot Password ?</a>
+                </div>
+
+                <!-- Login button -->
+                <button class="btn">Login</button>
+
+                <!-- Message for new users to Sign Up -->
+                <p class="member">Not a member? <a class="sign-up" href="register"> Sign Up!</a></p>
             </div>
-            <input type="submit" class="btn" value="Log In">
-            <p>not a member? <a class="sign-up" href="register"> sign up!</a></p>
-        </div>
         </form>
     </div>
+
+    <!-- JavaScript code for functionality -->
     <script>
         // Check if the page was reloaded (not the first visit)
-    if (performance.navigation.type === 1) {
-        // The page was reloaded, hide the error message
-        const errorMessage = document.querySelector(".error-message");
-        const error_email = document.querySelector(".error_email");
-        errorMessage.style.display = "none";
-        error_email.style.display = "none";
-    }
+        if (performance.navigation.type === 1) {
+            // The page was reloaded, hide the error message
+            const errorMessage = document.querySelector(".error_password");
+            const error_email = document.querySelector(".error_email");
+            errorMessage.style.display = "none";
+            error_email.style.display = "none";
+        }
+
+        // Event listener to hide error messages when clicking anywhere on the page
+        document.addEventListener("click", function () {
+            const errorMessage = document.querySelector(".error_password");
+            const error_email = document.querySelector(".error_email");
+            errorMessage.style.display = "none";
+            error_email.style.display = "none";
+        })
+
+        // Function to toggle password visibility
+        let passwordVisible = false;
+        const passwordField = document.querySelector(".password-field");
+        const fontIcon = document.getElementById("font");
+
+        function togglepw() {
+            passwordVisible = !passwordVisible;
+            passwordField.type = passwordVisible ? "text" : "password";
+            fontIcon.classList.toggle("bx-hide", passwordVisible);
+            fontIcon.classList.toggle("bx-show", !passwordVisible);
+        }
     </script>
 </body>
+
 </html>
