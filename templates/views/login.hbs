@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <!-- Importing Google Fonts for Roboto Slab -->
-    <link href='https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap' rel='stylesheet'>
+    {{!--  Importing Icons for the page  --}}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <style>
         /* Importing Google Fonts */
@@ -70,7 +70,7 @@
             border-radius: 50px;
             padding: 5px 45px 5px 20px;
             transition: .5s;
-            color: white; /* Added white text color */
+            color: white; 
         }
 
         /* Styles for icons within text fields */
@@ -199,7 +199,7 @@
                 <div class="text-field">
                     <input class="email-field" autocomplete="off" name="email" required>
                     <label class="email-label">Email</label>
-                    <i class='bx bx-envelope aquamrine-icon'></i> <!-- Typo fixed: aquamrine-icon to aquamarine-icon -->
+                    <i class='bx bx-envelope'></i> 
                     <p class="error_email error-message">{{error_email}}</p>
                 </div>
 
